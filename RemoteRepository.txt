@@ -1,0 +1,80 @@
+# Remote Repository
+	*local repository와 대비되는 개념
+	*작업한 내용을 인터넷에 올려 백업하고 이 저장소를 매개로 다른 이와 협업할 때 사용
+	*원격저장소
+# 의미1
+## 우리의 소스코드를 백업
+# 의미2
+## 다른 사람들과 협업
+	*프로젝트가 커지는 과정에서 굉장히 중요
+	*혼자 프로젝트 진행시 굳이 쓸 필요x
+	*dropbox나 구글드라이브와 같은 클라우스 스토리지로 충분
+
+#local이라는 이름의 저장소 생성
+mkdir git-tutorial4
+cd git-tutorial4
+git init local
+ls -al
+
+#
+vim f1.txt
+i
+a
+esc
+:wq
+git init f1.txt
+git commit -m 1
+
+#원격저장소는 지역저장소와 대비됨
+#지역저장소와 연결되어 동기화되는 저장소를 원격저장소라 함
+#서로다른 컴퓨터에 연결되어있다.
+
+
+#bare는 저장소로써의 기능만 수행할 수 있는 저장소를 만드는 옵션
+#저장소를 만들때 .git 안에 들어가는 파일들이 remote에 생성(working 디렉토리가 없다.)
+#원격저장소는 원격저장소를 순수하게 유지하기 위해서 어떠한 작업도 하지 않게 하기 위해서
+#bare라는 옵션을 줘서 수정이 불가능하게 하는 것이 일반적
+#원격 저장소를 만들 때, bare를 사용한다고 생각
+cd ..
+git init --bare remote
+cd remote
+ls -al
+
+#local로 와서 remote에 local 저장소를 연결 + 푸쉬
+#저장소는 현재 디렉토리
+#현재 저장소에 원격 저장소를 add(추가)한다.
+#그 저장소의 경로는 /c/Users/dlatk/git-tutorial4/remote이다.(pwd로 확인)
+#git remote add /c/Users/dlatk/git-tutorial4/remote
+#경로를 매번 쓰기 번거롭기 때문에 경로를 origin에 저장
+cd ..
+cd local
+ls -al
+pwd
+git remote add origin /c/Users/dlatk/git-tutorial4/remote	#암것도 안뜨면 잘 된것
+git remote -v	#잘 되었는지 확인
+git remote remove origin	#저장소를 지움, 사용설명서를 보자
+
+#현재 branch(master branch)를 연결시킨 원격 저장소에 똑같은 이름의 branch로 push
+#거기로 올리고 싶은 것
+git push
+git branch
+
+#현재 우리의 branch(master)를 push할 때 origin에 master branch로 push한다는 뜻
+#현재 local branch와 원격 branch 사이에 명시적으로 연결을 세팅해주는 옵션이다.
+#remote에 local과 같은 log가 있는 것을 확인
+git push --set-upstream origin master
+cd ..
+cd remote/
+git log
+
+#원격저장소를 직업 만들때
+git init --bare
+#지역저장소 내용을 원격 저장소에 업로드(push) 할 때
+push
+
+#My Server
+## 자신의 서버를 이용해서 원격 저장소를 운영하는 방법, hard
+##지적 호기심이 있다면 듣기
+#Github
+##블라인 서비스가 제공하는 서버를 이용해서 원격저장소를 운영하는 방법 , easy
+##필수

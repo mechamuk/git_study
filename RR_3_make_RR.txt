@@ -1,0 +1,88 @@
+# github 로그인
+	*new repository
+	*gitfth
+	*README는 프로젝트에 대한 설명을 쓰는 곳
+create repository
+
+#HTTPS로 clone 가능
+## 원격 저장소를 만들고 이를 복제하여 로컬을 만들어 로컬에서 작업
+echo "# gitfth" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/muks-mecha/gitfth.git
+git push -u origin master
+## 로컬에 작업하던걸 원격 저장소에 올리는 것
+git remote add origin https://github.com/muks-mecha/gitfth.git
+git push -u origin master
+
+# 로컬 저장소에서 작업
+cd git-tutorial4
+mkdir gitfth
+cd gitfth
+git init
+vim f1.txt
+i
+a
+esc
+:wq
+git add f1.txt
+git commit -m '1'
+
+## 로컬에 작업하던걸 원격 저장소에 올리기
+## 현재 로컬 저장소에 원격저장소(remote repository)를 연결(add)한다
+## remote repository는 이 주소를 따른다
+## 주소가 길어서 origin이라는 별명을 주겠다. 
+## origin은 로컬저장소와 연결되어 있는 기본적인 원격저장소
+## 주로 동기화하는 저장소
+git remote add origin https://github.com/muks-mecha/gitfth.git
+git remote
+git remote -v
+
+## 하나 더 추가하는 연습
+git remote add friend https://github.com/muks-mecha/gitfth.git
+git remote -v
+git remote --help
+git remote remove friend
+git remote -v
+
+## 업로드 다운로드와 같다
+## git은 로컬저장소를 기준으로 얘기함
+## 로컬에서 원격으로 보낼 때 push한다고 말함
+## 현재 체크아웃되어있는 로컬 저장소의 branch를 origin에 해당되는 저장소
+## 그중에 master branch로 동기화(push)한다.
+## 원격과 로컬 branch를 연결시켜서 다음부터는 자동으로 넘어가게 하는 옵션:-u
+## 다음부터는 안써줘도 된다.
+git push -u origin master
+## 로그인하면 업로드 된다.
+## 자 f1.txt를 수정해보자
+## 다음부터는 push만 써도 된다
+## -a 옵션은?
+vim f1.txt
+i
+enter
+b
+esc
+:wq
+git commit -am 2
+git push
+
+##github에서 새로고침하면 내용을 볼 수 있다.
+
+## 다른 컴퓨터에서 작업하면?
+## 원격 저장소를 로컬 저장소로 복제
+## clone with https
+cd ..
+mkdir gitfth2
+cd gitfth2
+ls -al
+# . 옵션은 현재 디렉토리라는 뜻
+# 이미 연결되어 있는 상태를 볼 수 있고 그 때의 별명은 기본적으로 origin이 부여된다.
+git clone https://github.com/muks-mecha/gitfth.git .
+ls -al
+git remote -v
+
+
+
+
+

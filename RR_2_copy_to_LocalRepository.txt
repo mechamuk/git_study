@@ -1,0 +1,50 @@
+# 원격저장소_2_원격 저장소를 지역 저장소로 복제(github)
+	*https://github.com
+#자신의 프로젝트를 올리는 것도 좋지만
+#올라가 있는 것들을 끌고와서 소스로 보고 수정하는 방법 알기
+
+깃허브에서 git 검색
+아래 주소로 이동
+https://github.com/git/git
+
+프로젝트의 소스코드를 온라인으로 볼 수 있는 화면
+commit라는 것은 현재 이만큼의 commit으로 여기까지 왔다는 것을 말함
+fork를 누르면 그대로 내것으로 복제.
+라이선스에 따라서 마음대로 사용할 수 있다.
+clone or download를 눌러서 주소 복사
+
+
+
+mkdir github-tutorial
+cd github-tutorial
+# 이 디렉토리에 gitsrc라는 디렉토리를 만들고
+#이곳에 그 코드를 넣자
+git clone https://github.com/git/git.git gitsrc
+ls -al
+git log
+
+#이것의 첫번째 commit을 보려면?
+git log --reverse
+#첫번째 소스코드가 궁금하다면?
+#commit id copy
+#다른 commit들은 삭제된게 아니라 안보이게 된 것이다.
+git checkout e83c5163316f89bfbde7d9ab23ca2e25604af290
+git log
+ls -al
+
+#정리
+#원격저장소 내용을 로컬저장소로 가져오려면?
+#clone 사용
+git
+#git의 소스코드를 지역저장소로 가져오기
+git clone https://github.com/git/git.git
+
+#로그를 거꾸로 출력하기
+git log --reverse
+
+#git의 첫번째 커밋으로 체크아웃하기
+git checkout e83c5163316f89bfbde7d9ab23ca2e25604af290
+
+
+
+
