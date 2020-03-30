@@ -1,0 +1,39 @@
+//복습
+ls -al
+cp f1.txt f2.txt	//f1.txt와 똑같은 파일 f2.txt 생성
+git status		//현재 상태를 확인
+git add f2.txt	//버전 관리 시작
+git status
+git commit
+i
+3		//commit message 작성
+:wq
+git log		//역사를 확인
+q		//빠져나옴
+vim f1.txt
+i
+		//소스 수정
+:wq
+
+vim f2.txt
+i
+		//소스 수정(내용 수정)
+:eq
+cat f1.txt
+cat f2.txt
+git status
+git add f1.txt	//commit 대기 상태에 들어감
+		//==stage area에 들어감
+git status		//f1.txt modified(초록색)
+		//f2.txt modified(빨간색)
+git commit	//git commit 하면 commit 대기상태(stage area)인 f1.txt만 버전관리됨
+i
+4
+:wq
+git log		//4번째 commit 생성됨
+git status		//f2.txt가 남아있다!
+ls -al
+//git은 stage와 repository 라는 개념을 갖고 있다.
+		//stage는 commit 대기 파일들이 가는 곳
+		//repository는 commit 된 결과가 저장되는 곳
+

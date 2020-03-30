@@ -1,0 +1,84 @@
+git log
+q
+git log -p
+// 내용
+    2
+
+diff --git a/f2.txt b/f2.txt
+index 0b41d97..df7127c 100644
+--- a/f2.txt
++++ b/f2.txt
+@@ -1 +1 @@
+-source2 : 1
++source2 : 2
+//내용 끝
+//버전 1의 f2.txt의 내용인 source2 : 1 이 사라지고 버전 2에서 source2 : 2 이 생김
+
+git log
+//버전 2의 고유한 주소를 복사
+//나와서 붙여넣기
+git log c1a90695765fe3e186550acd48144211e8f2f5c5
+//나와서 다시 git log
+git log
+//버전 5 복사 6bf7389705a73e9e6d936582ec8d7394908627f3
+//나와서 diff 이용
+git diff 6bf7389705a73e9e6d936582ec8d7394908627f3..c1a90695765fe3e186550acd48144211e8f2f5c5
+//결과값
+$ git diff 6bf7389705a73e9e6d936582ec8d7394908627f3..c1a90695765fe3e186550acd48144211e8f2f5c5
+diff --git a/f1.txt b/f1.txt
+index e3a30dc..2456b16 100644
+--- a/f1.txt
++++ b/f1.txt
+@@ -1 +1 @@
+-f1.txt : 5
++source : 2
+diff --git a/f3.txt b/f3.txt
+deleted file mode 100644
+index 2456b16..0000000
+--- a/f3.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-source : 2
+//결과값 끝
+//두 버전에 해당하는 소스 코드 사이의 차이점을 보여줌
+
+//나와서 코드 수정
+vim f1.txt
+i
+5
+esc
+:wq
+
+git diff
+//결과값
+$ git diff
+warning: LF will be replaced by CRLF in f1.txt.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in f2.txt.
+The file will have its original line endings in your working directory
+diff --git a/f1.txt b/f1.txt
+index 4891214..e3a30dc 100644
+--- a/f1.txt
++++ b/f1.txt
+@@ -1 +1 @@
+-f1.txt : 33
++f1.txt : 5
+diff --git a/f2.txt b/f2.txt
+index df7127c..3de843f 100644
+--- a/f2.txt
++++ b/f2.txt
+@@ -1 +1 @@
+-source2 : 2
++f2.txt : 5
+//결과값 끝
+//git diff를 통해 작업이 시작한 때와 끝난 때의 차이를 확인하며 틀린 점이 없는지 볼 수 있다
+//버전관리 시스템에 굉장히 중요
+//지금은 f2.txt가 commit되지 않아서 그것도 포함되어 나옴
+git add f1.txt
+git add f2.txt
+git commit
+i
+8
+esc
+:wq
+git diff	//바뀐 내용 없다

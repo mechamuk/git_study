@@ -1,0 +1,16 @@
+cd git-tutorial
+git
+//작업 진항할 때 clone이나 init 사용
+//init은 현재 directory에 작업 진행하겠다
+git init
+
+$ ls -al	//현재 디렉토리의 파일 목록 보여줌
+total 27
+drwxr-xr-x 1 muk 197121  0 12월 21 20:16 ./
+drwxr-xr-x 1 muk 197121  0 12월 29 00:32 ../
+drwxr-xr-x 1 muk 197121  0  1월  3 14:23 .git/
+-rw-r--r-- 1 muk 197121 12 12월 21 20:16 f1.txt
+-rw-r--r-- 1 muk 197121 11 12월 19 11:55 f2.txt
+-rw-r--r-- 1 muk 197121 11 12월 19 11:53 f3.txt
+-rw-r--r-- 1 muk 197121  0 12월 19 03:17 README.md
+//생성된 정보다 git 파일에 저장됨

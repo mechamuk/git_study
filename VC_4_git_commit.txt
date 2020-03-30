@@ -1,0 +1,32 @@
+//버전은 모든 변화를 말하지 않고 의미있는 변화를 말함
+git status		//저장소의 상태 확인
+git config --global user.name muks
+git config --global user.email dlatkdanr2@naver.com
+git commit	//vim 실행됨
+		//변화가 있어야만 실행 가능(저장소 만들기 참고)
+		//git status 했을 때의 정보를 알려줌
+		//어떤 변화를 담고 있는지, 왜 변경되었는지 적는 것
+i		//insert
+1		//숫자 1(버전 1) 입력
+esc
+:wq		//저장하고 빠져나옴
+git log		//버전 확인
+ls -al
+vim f1.txt
+i
+		//코드 수정
+:wq		//빠져나옴
+git status
+		//여기서 git commit 하면 안됨
+		//git add f1.txt.를 하여 버전 관리 시스템 앞에 add해야함
+		//어떤 새로운 파일이 생겼을 때, 수정 되어서 버전 만들기 전에 add!!
+git add f1.txt
+git status
+git commit
+i
+2
+:wq
+git log
+//H.W. f2.txt 만들고 파일을 commit 하기
+
+

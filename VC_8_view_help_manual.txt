@@ -1,0 +1,26 @@
+vim f1.txt
+i
+6
+esc
+:wq
+git add f1.txt
+i
+9
+esc
+:wq
+git log
+git commit --help	//commit 메시지에 대한 도움말을 볼 수 있다.
+vim f1.txt
+i
+7
+esc
+:wq
+git commit -a	//수정한 파일을 add 없이 commit 함
+i
+10
+esc
+:wq
+//git commit -am "11" 을 하게 되면 editor 켜지 않고 버전 11로 바로 commit
+
+
+

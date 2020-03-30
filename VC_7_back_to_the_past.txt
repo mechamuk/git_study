@@ -1,0 +1,47 @@
+git log
+q
+//과거로 돌아가는 방법 두가지
+//reset vs revert
+ls -al
+//혹시 모를 땐 복사해놓고 과거로 돌아가기
+git log
+//결과물
+commit f90d0d2ad964d64601ca43a4757ebdd899b44b80 (HEAD -> master)
+Author: muks_mecha <dlatkdanr2@naver.com>
+Date:   Tue Jan 7 01:23:41 2020 +0900
+
+    8
+
+commit 19b45cabe2eadf4852361bae1f5ee051ee59c7ad
+Author: muks_mecha <dlatkdanr2@naver.com>
+Date:   Sat Dec 21 20:17:43 2019 +0900
+
+    7
+
+commit 73b15fc0c9eee57678a5f43d6ddc5563681101d9
+Author: muks_mecha <dlatkdanr2@naver.com>
+Date:   Sat Dec 21 20:09:45 2019 +0900
+
+    6
+
+commit 6bf7389705a73e9e6d936582ec8d7394908627f3
+Author: muks_mecha <dlatkdanr2@naver.com>
+Date:   Sat Dec 21 20:05:24 2019 +0900
+
+    5
+//결과물 끝
+//git reset 버전 6을 하면 버전 6으로 가는지 아님 버전 3이 없어지는지 확실히 알자!!
+git reset 73b15fc0c9eee57678a5f43d6ddc5563681101d9 --hard
+//simple하게 reset할 때는 hard를 쓴다.(조금 위험하긴 함)
+git log
+//버전 6이 최신 버전이 됨
+
+
+//저장소 협업을 하면 reset이 안됨
+//com에 있는것만 reset 가능
+
+git revert		//commit 취소하는 명령
+//commit 취소하면서 새로운 버전 생성
+
+//중요한건 버전을 생성하고 버전 사이의 차이점을 확인하는 것!!
+
